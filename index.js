@@ -12,7 +12,7 @@ const app = express();
 try {
   await mongoose.connect(process.env.DB_CNN);
 } catch (error) {
-  handleError(error);
+ console.log("Error mongoose", error);
 }
 
 //cors
