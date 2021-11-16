@@ -1,24 +1,21 @@
-const mongoose = require('mongoose');
-require('dotenv').config();
-mongoose.set('useFindAndModify', false);
+const mongoose = require("mongoose");
+require("dotenv").config();
+mongoose.set("useFindAndModify", false);
 const dbConnection = async () => {
+  try {
+    await mongoose.connect(process.env.DB_CNN, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      // useCreateIndex: true
+    });
 
-    try {
-        await mongoose.connect(process.env.DB_CNN, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            // useCreateIndex: true
-        });
-
-        console.log('DB Online')
-
-    } catch (error) {
-        console.log(error);
-        throw new Error('Error al inicializar la base de datos')
-    }
-
-}
+    console.log("DB Online");
+  } catch (error) {
+    console.log(error);
+    throw new Error("Error al inicializar la base de datos");
+  }
+};
 
 module.exports = {
-    dbConnection
-}
+  dbConnection,
+};
