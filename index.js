@@ -14,7 +14,7 @@ const app = express();
 // dbConnection();
 console.log(process.env.DB_CNN);
 mongoose
-  .connect(process.env.DB_CNN, {
+  .connect("mongodb+srv://mern_user:lEc1BptPcZjVENgd@cluster0.066qu.gcp.mongodb.net/mern_calendar", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },)
