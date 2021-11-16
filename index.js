@@ -11,17 +11,7 @@ mongoose.set("useFindAndModify", false);
 const app = express();
 //Base de Datos
 
-// dbConnection();
-console.log(process.env.DB_CNN);
-mongoose
-  .connect("mongodb+srv://mern_user:lEc1BptPcZjVENgd@cluster0.066qu.gcp.mongodb.net/mern_calendar", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },)
-  .then(() => {
-    console.log("Conectado a la bd");
-  });
-
+dbConnection();
 //cors
 app.use(cors());
 
