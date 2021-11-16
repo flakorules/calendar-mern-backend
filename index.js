@@ -3,17 +3,19 @@ const cors = require("cors");
 const { dbConnection } = require("./database/config");
 require("dotenv").config();
 
+const mongoose = require("mongoose");
+
+mongoose.set("useFindAndModify", false);
+
 //Crear sera
 const app = express();
 //Base de Datos
 
 // dbConnection();
 
-try {
-  await mongoose.connect(process.env.DB_CNN);
-} catch (error) {
- console.log("Error mongoose", error);
-}
+mongoose.connect(process.env.DB_CNN, { useNewUrlParser: true }).then(() => {
+  console.log("Conectado a la bd");
+});
 
 //cors
 app.use(cors());
@@ -34,5 +36,4 @@ app.use("/api/events", require("./routes/events"));
 //Escuchar peticiones
 app.listen(process.env.PORT, () => {
   console.log(`Servidor corriendo en puerto ${process.env.PORT}`);
-  
 });
