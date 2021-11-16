@@ -8,7 +8,7 @@ const generarJWT = (uid, name) => {
             uid, name
         };
 
-        jwt.sign(payload, process.env.SECRET_JWT_SEED, {
+        jwt.sign(payload, "Esto-Es-Una-Palabra-Secreta", {
             expiresIn: '2h'
         }, (err, token) => {
 
