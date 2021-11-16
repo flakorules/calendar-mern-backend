@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = express();
 //Base de Datos
 
-dbConnection();
+// dbConnection();
 
 //cors
 app.use(cors());
@@ -29,4 +29,5 @@ app.use('/api/events', require('./routes/events') );
 //Escuchar peticiones
 app.listen(process.env.PORT, () => {
     console.log(`Servidor corriendo en puerto ${process.env.PORT}`);
+    dbConnection();
 });
