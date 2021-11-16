@@ -12,10 +12,15 @@ const app = express();
 //Base de Datos
 
 // dbConnection();
-
-mongoose.connect(process.env.DB_CNN, { useNewUrlParser: true }).then(() => {
-  console.log("Conectado a la bd");
-});
+console.log(process.env.DB_CNN);
+mongoose
+  .connect(process.env.DB_CNN, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },)
+  .then(() => {
+    console.log("Conectado a la bd");
+  });
 
 //cors
 app.use(cors());
